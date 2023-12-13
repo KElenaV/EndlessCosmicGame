@@ -12,6 +12,11 @@ public class PlayerShoot : MonoBehaviour
     private void Awake()
     {
         _input = GetComponent<PlayerInput>();
+
+        foreach (var projectile in _projectiles)
+        {
+            projectile.gameObject.SetActive(false);
+        }
     }
 
     private void OnEnable() => _input.Shoot += OnShoot;
